@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset ="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="shortcut icon" href="img/favicon.png">
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>Game News</title>
+        
+
+    </head>
+    <body>
+        <div class="container">
+            <header class="">
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <img src="img/logo_color.png" alt="Game news" style="max-width:150px;">
+                    </div>
+    
+                    <div class="col-md-6 text-end">
+                        <button type="button" class="btn btn-outline-info" id="btnNew">New Game</button>
+                    </div>
+                </div>
+            </header>
+
+            <hr class="border-secondary">
+
+            <section id="section">
+             <div class="row">
+               <div class="col-md-4">
+                <div class="card border-primary ">
+                    <div class="card-header">Resident Evil</div>
+                    <div class="card-body">
+                        <div class="videoWrapper">
+                            <iframe width="560" height="390" src="https://www.youtube.com/embed/SoJVxIQTm6Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button type="button" class="mb-2 w-100 btn btn-outline-warning">Edit</button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <button type="button" class="mb-2 w-100 btn btn-outline-success" onclick="openModalViewGame(21)">View</button>
+                            </div>
+
+                            <div class="col-md-3">
+                                <button type="button" class="mb-2 w-100 btn btn-outline-danger" onclick="deleteGame(78)">Del</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+             </div>
+            </section>
+        </div>
+
+                
+        <!-- Modal -->
+        <div class="modal fade" id="modalNewGame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form id="frmGame" method="post">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create or edit New Game</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="txtTitle">Title</label>
+                            <input type="hidden" id="txtId" value="">
+                            <input type="text" id="txtTitle" placeholder="Game title" class="form-control">
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="txtDescription">Description</label>
+                            <input type="text" id="txtDescription" placeholder="Game description" class="form-control">
+                           
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="txtVideoid">Video ID</label>
+                            <input type="text" id="txtDescription" placeholder="SoJVxIQTm6Q" class="form-control">
+                           
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col">
+                                <div class="alrt alert-info" id="dvAlert">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="btnSubmit">Save</button>
+                </div>
+            </form>
+            </div>
+            </div>
+        </div>
+
+        <!--modal  view-->
+
+        <div class="modal fade" id="modalViewGame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">View game</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body" id="gameInfo">
+                    
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script src="js/jquery-3.6.0.min" ></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
+    </body>
+
+</html>

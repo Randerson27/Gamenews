@@ -1,0 +1,17 @@
+{
+    "name": "jose/gamenews",
+    "description": "Projeto site de jogos",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jose randerson",
+            "email": "randerson.ghoul@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4" : {
+            "App\\" : "App/"
+        }
+    }
+}

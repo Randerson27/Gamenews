@@ -13,110 +13,125 @@
 
     <body>
         <div class="container">
-           <header>
+          <header>
             <div class="row mt-3">
-                <div class="col-md-6">
-                    <img src="img/logo_color.png" alt="Game News" style="max-width: 170px;">
-                </div>
-
-                <div class="col-md-6 text-end">
-                    <button type="button" class="btn btn-outline-info" id="btnNew">New Game</button>
-                </div>
+              <div class="col-md-6">
+                <img src="img/logo_color.png" alt="Game news" style="max-width:250px;">
+              </div>
+      
+              <div class="col-md-6 text-right">
+                <button type="button" class="btn btn-outline-info" id="btnNew">New game</button>
+              </div>
             </div>
-           </header>
-           <hr class="border-secondary">
-           <section id="section">
-               <div class="row">
-                   <div class="col-md-4">
-                    <div class="card border-primary">
-                        <div class="card-header">Resident Evil Village</div>
-                        <div class="card-body">
-                            <div class="videoWrapper">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/4OrttZ2-qR8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <buton type="button" name="button" class="mb-2 w-100 btn btn-outline-warning">Edit</buton>
-                                </div>
-    
-                                <div class="col-md-6">
-                                    <buton type="button" name="button" class="mb-2 w-100 btn btn-outline-success" onclick="openModalViewGame(21)">View</buton>
-                                </div>
-    
-                                <div class="col-md-3">
-                                    <buton type="button" name="button" class="mb-2 w-100 btn btn-outline-danger" onclick="deleteGame(78)">Del</buton>
-                                </div>
-                            </div>
-                        </div>
+          </header>
+      
+          <hr class="border-secondary">
+      
+          <section>
+            <div class="row" id="section">
+              <!--
+              <div class="col-md-4">
+                <div class="card border-primary ">
+                  <div class="card-header">Resident Evil</div>
+                  <div class="card-body">
+                    <div class="videoWrapper">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/d9s384vZP3M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                   </div>
-               </div>
-           </section>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <button type="button" name="button" class="mb-2 w-100 btn btn-outline-warning">Edit</button>
+                      </div>
+                      <div class="col-md-6">
+                        <button type="button" name="button" class="mb-2 w-100 btn btn-outline-success" onclick="openModalViewGame(21)">View</button>
+                      </div>
+                      <div class="col-md-3">
+                        <button type="button" name="button" class="mb-2 w-100 btn btn-outline-danger" onclick="deleteGame(78)">Del</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              -->
+            </div>
+          </section>
         </div>
-
-        <!-- Modal FORM-->
-        <div class="modal fade" id="modalNewGame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+      
+      
+        <!---MODAL FORM-->
+        <div class="modal fade" id="modalNewGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <form id="frmGame" method="post">
+              <form id="frmGame" method="post">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create or edit new game</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
+                  <h5 class="modal-title" id="exampleModalLabel">Create or Edit new game</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
                 <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="txtTitle">Title</label>
-                                <input type="hidden" id="txtId" value="" >
-                                <input type="text" id="txtTitle" placeholder="Game title" class="form-control">
-                            </div>
-
-                            <div class="col-md-5">
-                                <label for="txtDescription">Description</label>
-                                <input type="text" id="txtDescription" placeholder="Game Description" class="form-control">
-                            </div>
-
-                            <div class="col-md-3">
-                                <label for="txtVideoid">Video ID</label>
-                                <input type="text" id="txtVideoid" placeholder="4OrttZ2-qR8" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="mt-3 alert alert-info" id="dvAlert">&nbsp;</div>
-                            </div>
-                        </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="txtTitle">Title</label>
+                      <input type="hidden" id="txtId" value="">
+                      <input type="text" id="txtTitle" placeholder="Game title" class="form-control">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Save</button>
+      
+                    <div class="col-md-5">
+                      <label for="txtDescription">Description</label>
+                      <input type="text" id="txtDescription" placeholder="Game description" class="form-control">
                     </div>
-                </form>
-            </div>
-            </div>
-        </div>
-
-        <!-- MODAL VIEW-->
-        <div class="modal fade" id="modalViewGame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">View Game</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="gamInfo">
-                
+      
+                    <div class="col-md-3">
+                      <label for="txtVideoid">Video ID</label>
+                      <input type="text" id="txtVideoid" placeholder="d9s384vZP3M" class="form-control">
+                    </div>
+                  </div>
+      
+                  <div class="row mt-3">
+                    <div class="col">
+                      <div class="alert alert-info" id="dvAlert">&nbsp;</div>
+                    </div>
+                  </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success" id="btnSubmit">Save</button>
                 </div>
+              </form>
             </div>
-            </div>
+          </div>
         </div>
+      
+      
+        <!--MODAL VIEW-->
+        <div class="modal fade" id="modalViewGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="titleView">Resident</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="gameInfo">
+              <!--TEMPLATE-
+              <div class="videoWrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/d9s384vZP3M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <hr class="border-info">
+              <div>
+                Resident Resident Resident Resident Resident Resident Resident Resident Resident Resident Resident Resident
+              </div>
+              TEMPLATE-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
         
         <script src="js/jquery-3.6.0.min.js"></script>
         <script src="js/script.js"></script>
